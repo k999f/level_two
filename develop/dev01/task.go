@@ -20,8 +20,13 @@ import (
 Программа должна проходить проверки go vet и golint.
 */
 
+func getNtpTime(address string) (time.Time, error) {
+	ntpTime, err := ntp.Time(address)
+	return ntpTime, err
+}
+
 func main() {
-	ntpTime, err := ntp.Time("0.beevik-ntp.pool.ntp.org")
+	ntpTime, err := getNtpTime("0.beevik-ntp.pool.ntp.org")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error getting time from NTP: %v\n", err)
 		os.Exit(1)
