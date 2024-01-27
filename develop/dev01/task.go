@@ -1,5 +1,13 @@
 package main
 
+import (
+	"fmt"
+	"os"
+	"time"
+
+	"github.com/beevik/ntp"
+)
+
 /*
 === Базовая задача ===
 
@@ -13,5 +21,14 @@ package main
 */
 
 func main() {
+	ntpTime, err := ntp.Time("0.beevik-ntp.pool.ntp.org")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error getting time from NTP: %v\n", err)
+		os.Exit(1)
+	}
 
+	currentTime := time.Now()
+
+	fmt.Printf("NTP time: %s\n", ntpTime)
+	fmt.Printf("Current time: %s", currentTime)
 }
