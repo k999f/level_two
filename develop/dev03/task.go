@@ -313,7 +313,7 @@ func main() {
 
 	// Проверяем, что указано имя файла
 	if flag.NArg() == 0 {
-		log.Fatal("Specify the name of the file to sort")
+		log.Fatal("Specify name of the file to sort")
 	}
 
 	// Открываем файл
@@ -336,6 +336,5 @@ func main() {
 
 	lines = sortLines(lines)
 
-	getPrettyString(lines)
 	fmt.Println(getPrettyString(lines))
 }

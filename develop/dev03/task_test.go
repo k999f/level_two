@@ -44,6 +44,7 @@ func TestSortFlagK(t *testing.T) {
 		"bword fword bword",
 	}
 	result := sortFlagK(lines)
+	flags.K = 0
 	if !reflect.DeepEqual(result, want) {
 		t.Fatalf("Case:\n%s\nWant:\n%s\nGot:\n%s", getPrettyString(lines), getPrettyString(want), getPrettyString(result))
 	}
